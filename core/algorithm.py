@@ -17,7 +17,7 @@ def test_confounder(data, num_env=None, num_obs=None):
         num_obs = data['u'].shape[1]
 
     num_cmp = num_obs // 2
-    data = data.loc[:num_env]
+    data = data.iloc[:num_env]
     p_vals = np.empty((num_cmp,))
 
     for i in np.arange(num_cmp):
