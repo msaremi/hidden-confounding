@@ -31,7 +31,7 @@ def test_confounder(data, num_env=None, num_obs=None, concat=False):
             concat_data.iloc[num_env * i:num_env * (i + 1)] \
                 = data[list(product(['u', 't', 'y'], [2 * i, 2 * i + 1]))].iloc[:num_env]
 
-        _, p_val, _ = g_sq(('t', 0), ('y', 1), (('t', 1),), data, boolean=False)
+        _, p_val, _ = g_sq(('t', 0), ('y', 1), (('t', 1),), concat_data, boolean=False)
         return p_val
     else:
         data = data.iloc[:num_env]
